@@ -3,10 +3,10 @@
     <item
         android:id="@+id/navigation_movie"
         android:icon="@drawable/ic_movie"
-        android:title="MOVIE" />
+        android:title="@string/movie" />
 
     <item
         android:id="@+id/navigation_tv"
         android:icon="@drawable/ic_television"
-        android:title="TV" />
+        android:title="@string/tv" />
 </menu>

@@ -2,4 +2,6 @@
 <resources>
     <string name="title_change_language">Ganti Bahasa</string>
     <string name="description">Maaf Kami Masih Belum support untuk bahasa indo</string>
+    <string name="movie">FILM</string>
+    <string name="tv">TV</string>
 </resources>

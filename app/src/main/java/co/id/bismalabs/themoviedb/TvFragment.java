@@ -37,6 +37,8 @@ public class TvFragment extends Fragment {
     private ArrayList<TvShow> tvShowArrayList = new ArrayList<>();
     SwipeRefreshLayout swipeRefreshLayout;
 
+    private final String STATE_TV = "state_tv";
+
     public TvFragment() {
         // Required empty public constructor
     }
@@ -61,7 +63,14 @@ public class TvFragment extends Fragment {
         swipeRefreshLayout = view.findViewById(R.id.swipeRefresh);
         swipeRefreshLayout.setRefreshing(true);
         swipeRefreshLayout.setOnRefreshListener(this::loadTv);
-        loadTv();
+        if (savedInstanceState != null) {
+            ArrayList<TvShow> tvShows = savedInstanceState.getParcelableArrayList(STATE_TV);
+            tvShowArrayList.addAll(tvShows);
+            swipeRefreshLayout.setRefreshing(false);
+        } else {
+            loadTv();
+        }
+
     }
 
     private void loadTv() {
@@ -88,5 +97,11 @@ public class TvFragment extends Fragment {
         toNavigationDetail.setTitle(tvShow.getTitle());
         toNavigationDetail.setImage(tvShow.getPosterPath());
         Navigation.findNavController(view).navigate(toNavigationDetail);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList(STATE_TV, tvShowArrayList);
     }
 }

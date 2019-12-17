@@ -39,6 +39,9 @@ public class MovieViewModel extends ViewModel {
     }
 
     public LiveData<ArrayList<Movie>> getMovie() {
+        if (mutableLiveData == null) {
+            mutableLiveData = new MutableLiveData<>();
+        }
         return mutableLiveData;
     }
 }

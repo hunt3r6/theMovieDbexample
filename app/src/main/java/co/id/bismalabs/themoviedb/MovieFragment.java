@@ -39,6 +39,8 @@ public class MovieFragment extends Fragment {
     private ArrayList<Movie> movieArrayList = new ArrayList<>();
     SwipeRefreshLayout swipeRefreshLayout;
 
+    private final String STATE_MOVIE = "state_movie";
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -70,7 +72,14 @@ public class MovieFragment extends Fragment {
         swipeRefreshLayout = view.findViewById(R.id.swipeRefresh);
         swipeRefreshLayout.setRefreshing(true);
         swipeRefreshLayout.setOnRefreshListener(this::loadMovie);
-        loadMovie();
+        if (savedInstanceState != null) {
+            ArrayList<Movie> movies = savedInstanceState.getParcelableArrayList(STATE_MOVIE);
+            movieArrayList.addAll(movies);
+            swipeRefreshLayout.setRefreshing(false);
+        } else {
+            loadMovie();
+        }
+
     }
 
     private void loadMovie() {
@@ -97,5 +106,12 @@ public class MovieFragment extends Fragment {
         toNavigationDetail.setTitle(movie.getTitle());
         toNavigationDetail.setImage(movie.getPosterPath());
         Navigation.findNavController(view).navigate(toNavigationDetail);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList(STATE_MOVIE, movieArrayList);
+
     }
 }

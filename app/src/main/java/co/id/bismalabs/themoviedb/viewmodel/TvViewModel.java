@@ -38,6 +38,9 @@ public class TvViewModel extends ViewModel {
     }
 
     public LiveData<ArrayList<TvShow>> getTvShow() {
+        if (mutableLiveData == null) {
+            mutableLiveData = new MutableLiveData<>();
+        }
         return mutableLiveData;
     }
 }

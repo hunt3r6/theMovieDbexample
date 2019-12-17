@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/navigation_movie">
+
+    <fragment
+        android:id="@+id/navigation_movie"
+        android:name="co.id.bismalabs.themoviedb.MovieFragment"
+        android:label="Movie List"
+        tools:layout="@layout/fragment_movie" >
+        <action
+            android:id="@+id/action_navigation_movie_to_navigation_detail"
+            app:destination="@id/navigation_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_tv"
+        android:name="co.id.bismalabs.themoviedb.TvFragment"
+        android:label="Tv List"
+        tools:layout="@layout/fragment_tv" >
+        <action
+            android:id="@+id/action_navigation_tv_to_navigation_detail"
+            app:destination="@id/navigation_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_detail"
+        android:name="co.id.bismalabs.themoviedb.DetailFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="type"
+            app:argType="string"
+            android:defaultValue="movie" />
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue="Avatar" />
+        <argument
+            android:name="date"
+            app:argType="string"
+            android:defaultValue="date" />
+        <argument
+            android:name="description"
+            app:argType="string"
+            android:defaultValue="description" />
+        <argument
+            android:name="image"
+            app:argType="string"
+            android:defaultValue="image" />
+    </fragment>
+</navigation>

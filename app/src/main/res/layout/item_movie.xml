@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="4dp"
+    card_view:cardElevation="5dp"
+    card_view:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/img_movie"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_marginBottom="4dp"
+            android:scaleType="fitXY"
+            tools:src="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/tv_movie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="2dp"
+            android:layout_toEndOf="@+id/img_movie"
+            android:layout_toRightOf="@id/img_movie"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Judul Movie" />
+
+        <TextView
+            android:id="@+id/tv_date_movie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_movie"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_toEndOf="@id/img_movie"
+            android:layout_toRightOf="@id/img_movie"
+            android:textStyle="italic"
+            tools:text="November 2019" />
+
+        <TextView
+            android:id="@+id/tv_desMovie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_date_movie"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_toEndOf="@id/img_movie"
+            android:layout_toRightOf="@id/img_movie"
+            android:ellipsize="end"
+            android:maxLines="5"
+            android:text="@string/description"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
